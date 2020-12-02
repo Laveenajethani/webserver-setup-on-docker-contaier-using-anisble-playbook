@@ -4,13 +4,11 @@
     yum_repository:
        name: Docker
        description: Docker Repo
-       baseurl: https://download.docker.com/linux/centos/7/x86_64/stable
+       baseurl: "https://download.docker.com/linux/centos/7/x86_64/stable"
        gpgcheck: no
 
   - name: Installing Docker package
-    package:
-      name:  "docker-ce-18.09.1-3.el7.x86_64"
-      state: present
+    shell: "echo y | yum install docker-ce --nobest --skip-broken"
 
   - name: "starting docker service"
     service: 
@@ -33,7 +31,7 @@
 
   - name: "copyting html file"
     copy: 
-     src: "web.html"
+     src: "index1.html"
      dest: "/ansible/"
 
   - name: "launching docker container"
