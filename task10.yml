@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: 192.168.43.249
   tasks: 
   - name: Adding Docker repository
     yum_repository:
@@ -36,13 +36,12 @@
 
   - name: "launching docker container"
     docker_container:
-     name: "web_os" 
+     name: "myweb_os" 
      image: httpd
      state: started
      exposed_ports:
      - "80"
      ports: 
      - "8222:80"
-     volumes:
-     - /ansible:/usr/local/apache2/htdocs/
+    
 
