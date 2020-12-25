@@ -43,5 +43,5 @@
      - "80"
      ports: 
      - "8222:80"
-    
-
+     volumes:
+     - /ansible:/usr/local/apache2/htdocs/ 
